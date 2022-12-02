@@ -100,7 +100,7 @@ function LampDetail() {
     responsive: true,
     fluid: true,
     sources: [{
-      src: 'http://45.118.114.26:80/camera/Tamansari.m3u8',
+      src: 'https://pelindung.bandung.go.id:3443/video/DISHUB/sptamansari.m3u8',
       type: 'application/x-mpegURL'
     }]
   };
