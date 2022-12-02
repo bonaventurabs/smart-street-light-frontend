@@ -100,7 +100,7 @@ function LampDetail() {
     responsive: true,
     fluid: true,
     sources: [{
-      src: '/vidapi/camera/Tamansari.m3u8',
+      src: 'http://45.118.114.26:80/camera/Tamansari.m3u8',
       type: 'application/x-mpegURL'
     }]
   };
