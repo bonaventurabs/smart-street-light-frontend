@@ -100,7 +100,7 @@ function LampDetail() {
     responsive: true,
     fluid: true,
     sources: [{
-      src: 'https://pelindung.bandung.go.id:3443/video/DISHUB/sptamansari.m3u8',
+      src: '/vidapi/camera/Tamansari.m3u8',
       type: 'application/x-mpegURL'
     }]
   };
