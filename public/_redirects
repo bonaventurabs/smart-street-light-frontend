@@ -1,2 +1,2 @@
 # Redirects from what the browser requests to what we serve
-/vidapi/* http://45.118.114.26:80/:splat 200
+/vidapi/* http://45.118.114.26:80/:splat  200
