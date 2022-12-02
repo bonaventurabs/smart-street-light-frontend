@@ -1,9 +1,14 @@
-html,
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+html,body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', Helvetica Neue, Roboto, Segoe UI, , Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, , sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #E5E5E5;
+  box-sizing: border-box;
 }
 
 a {
@@ -11,16 +16,36 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	-ms-box-sizing: border-box !important;
+	box-sizing: border-box !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.appWrapper {
+  max-width: 400px!important;
+  min-height: 100%!important;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:root {
+  /* Primary */
+  --clr-primary-blue:         #007AFF;
+  --clr-primary-blue-alt:     #BFDEFF;
+  --clr-primary-green:        #34C759;
+  --clr-primary-green-alt:    #CCF1D5;
+  --clr-primary-red:          #FF3B30;
+  --clr-primary-red-alt:      #FFCECB;
+
+
+  --clr-mono-black:         #303030;
+  --clr-mono-white:         #FFFFFF;
+  --clr-mono-grey:          #979797;
+  --clr-mono-grey-alt:      #C1C1C1;
+  --clr-mono-grey-alt-2:    #F7F8FA;
+  --clr-mono-grey-alt-3:    #EAEAEA;
 }

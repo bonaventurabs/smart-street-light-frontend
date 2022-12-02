@@ -1,0 +1,16 @@
+:root {
+  /* Primary */
+  --clr-primary-blue:         #007AFF;
+  --clr-primary-blue-alt:     #BFDEFF;
+  --clr-primary-green:        #34C759;
+  --clr-primary-green-alt:    #CCF1D5;
+  --clr-primary-red:          #FF3B30;
+  --clr-primary-red-alt:      #FFCECB;
+
+
+  --clr-mono-black:         #303030;
+  --clr-mono-white:         #FFFFFF;
+  --clr-mono-grey:          #979797;
+  --clr-mono-grey-alt:      #C1C1C1;
+  --clr-mono-grey-alt-2:    #F7F8FA;
+}

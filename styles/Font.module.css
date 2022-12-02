@@ -1,0 +1,58 @@
+.subText {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: -0.41px;
+}
+
+.display {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  letter-spacing: -0.41px;
+}
+
+.headerTitle{
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: -0.41px;
+}
+
+.tableText {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+
+  text-align: center;
+  letter-spacing: -0.41px;
+}
+
+.cardTitle{
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16x;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+}
+
+.cardText {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+
+  text-align: center;
+  letter-spacing: -0.41px;
+}
