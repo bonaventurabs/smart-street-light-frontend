@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/vidapi/*"
+  to = "http://45.118.114.26:80/:splat"
+  force = true
