@@ -28,18 +28,18 @@ function timeDiff (startTime, endTime) {
   return(hh + ":" + mm + ":" + ss);
 }
 
-const data = [
-  {
-    "name": "unit_1",
-    "isActive": true,
-    "isUseThreshold": true,
-    "energy": 100,
-    "luxThreshold": 200,
-    "activeTime": "2022-11-26T01:46:40Z",
-    "location": "Taman Sari",
-    "sector": "Dago"
-  }
-]
+// const data = [
+//   {
+//     "name": "unit_1",
+//     "isActive": true,
+//     "isUseThreshold": true,
+//     "energy": 100,
+//     "luxThreshold": 200,
+//     "activeTime": "2022-11-26T01:46:40Z",
+//     "location": "Taman Sari",
+//     "sector": "Dago"
+//   }
+// ]
 
 const Tag = ({isActive}) => {
   return ( isActive 
@@ -126,7 +126,7 @@ function LampsList() {
                   </div>
                   <div className={`${fontStyles.subText} ${styles.colBodyText}`} style={{ width: "45px", textAlign: "center" }}>{data.energy} %</div>
                   <div className={`${fontStyles.subText} ${styles.colBodyText}`} style={{ width: "60px", textAlign: "center" }} suppressHydrationWarning={true}>{data.isActive
-                    ? timeDiff(new Date(data.activeTime), currentTime)
+                    ? timeDiff(new Date(data.activeTime*1000), currentTime)
                     : "00:00:00"}</div>
                   <div className={`${fontStyles.subText} ${styles.colBodyText}`} style={{ width: "60px", textAlign: "center" }}>{data.luxThreshold}</div>
                 </div>
