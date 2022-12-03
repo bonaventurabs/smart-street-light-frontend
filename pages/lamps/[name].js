@@ -99,15 +99,15 @@ function LampDetail() {
     fluid: true,
     sources: [
       {
-      src: 'http://45.118.114.26:80/camera/Tamansari.m3u8',
+      src: '/vidapi/camera/Tamansari.m3u8',
       type: 'application/x-mpegURL'
       },
       {
-      src: 'http://45.118.114.26:80/camera/DjuandaBarat.m3u8',
+      src: '/vidapi/camera/DjuandaBarat.m3u8',
       type: 'application/x-mpegURL'
       },
       {
-      src: 'http://45.118.114.26:80/camera/CihampelasUtara.m3u8',
+      src: '/vidapi/camera/CihampelasUtara.m3u8',
       type: 'application/x-mpegURL'
       }
     ]
