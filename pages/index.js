@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables, LineController, LineElement, PointElement, LinearScale, Title } from "chart.js";
 
-import { get, ref, query, orderByChild, startAt, limitToFirst, equalTo } from 'firebase/database'
+import { get, ref, query, orderByChild, startAt, limitToLast, equalTo } from 'firebase/database'
 import useQuery from '../hooks/useQuery'
 
 import styles from '../styles/Home.module.css'
@@ -15,7 +15,6 @@ import NotifIcon from '../public/bell.svg'
 import SearchIcon from '../public/search.svg'
 import ProfileImg from '../public/image 3.png'
 import Maps from '../public/maps.png'
-import { async } from '@firebase/util';
 
 Chart.register(...registerables, LineController, LineElement, PointElement, LinearScale, Title);
 
@@ -35,7 +34,7 @@ function Home() {
   const measurementsData = useQuery({
     path: 'measurements/unit_1',
     queries: [
-      limitToFirst(10)
+      limitToLast(10)
     ]
   })
   const [isLoading, setIsLoading] = useState(measurementsData.loading);
@@ -45,8 +44,8 @@ function Home() {
   useEffect(() => {
     setIsLoading(measurementsData.loading);
     if (!measurementsData.loading) {
-      setTimeLabels(measurementsData.snapshot.map(el => new Date(el.time).toLocaleTimeString('en-GB', timeFormat)));
-      setLuxValues(measurementsData.snapshot.map(el => el.lux));
+      setTimeLabels(Object.keys(measurementsData.snapshot).map(key => new Date(measurementsData.snapshot[key].timestamp*1000).toLocaleTimeString('en-GB', timeFormat)));
+      setLuxValues(Object.keys(measurementsData.snapshot).map(key => measurementsData.snapshot[key].lux));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [measurementsData.loading])
@@ -75,7 +74,9 @@ function Home() {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <Image src={MenuIcon} alt="Menu icon" />  
-          <span className={`${fontStyles.headerTitle} ${styles.headerTitle}`}>Smart Street Light</span>
+          <Link href="/">
+            <span className={`${fontStyles.headerTitle} ${styles.headerTitle}`}>Smart Street Light</span>
+          </Link>
         </div>
         <div className={styles.headerContent}>
           <div className={styles.iconWrapper}>

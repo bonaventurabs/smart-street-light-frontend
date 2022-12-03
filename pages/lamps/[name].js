@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Head from 'next/head';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Switch from 'react-ios-switch';
@@ -10,13 +9,12 @@ import VideoJS from '../../components/VideoPlayer/VideoPlayer';
 import Tag from "../../components/Tag/Tag";
 import BarChart from "../../components/BarChart/BarChart";
 
-import { get, ref, query, orderByChild, startAt, limitToFirst, equalTo } from 'firebase/database'
+import { get, ref, query, orderByChild, startAt, limitToLast, equalTo } from 'firebase/database'
 import useQuery from '../../hooks/useQuery'
 import useGetValue from '../../hooks/useGetValue'
 
 import styles from '../../styles/Config.module.css'
 import homeStyles from '../../styles/Home.module.css'
-import tableStyles from '../../styles/Table.module.css'
 import fontStyles from '../../styles/Font.module.css'
 
 import MenuIcon from '../../public/menu.svg'
@@ -99,10 +97,20 @@ function LampDetail() {
     controls: true,
     responsive: true,
     fluid: true,
-    sources: [{
-      src: '/vidapi/camera/Tamansari.m3u8',
+    sources: [
+      {
+      src: 'http://45.118.114.26:80/camera/Tamansari.m3u8',
       type: 'application/x-mpegURL'
-    }]
+      },
+      {
+      src: 'http://45.118.114.26:80/camera/DjuandaBarat.m3u8',
+      type: 'application/x-mpegURL'
+      },
+      {
+      src: 'http://45.118.114.26:80/camera/CihampelasUtara.m3u8',
+      type: 'application/x-mpegURL'
+      }
+    ]
   };
 
   const [isLoading, setIsLoading] = useState(true);
@@ -116,7 +124,7 @@ function LampDetail() {
   const measurementsData = useQuery({
     path: 'measurements/unit_1',
     queries: [
-      limitToFirst(10)
+      limitToLast(10)
     ]
   });
 
@@ -131,8 +139,8 @@ function LampDetail() {
   useEffect(() => {
     setIsLoading(measurementsData.loading);
     if (!measurementsData.loading) {
-      setTimeLabels(measurementsData.snapshot.map(el => new Date(el.time).toLocaleTimeString('en-GB', timeFormat)));
-      setLuxValues(measurementsData.snapshot.map(el => el.lux));
+      setTimeLabels(Object.keys(measurementsData.snapshot).map(key => new Date(measurementsData.snapshot[key].timestamp*1000).toLocaleTimeString('en-GB', timeFormat)));
+      setLuxValues(Object.keys(measurementsData.snapshot).map(key => measurementsData.snapshot[key].lux));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [measurementsData.loading])
@@ -155,7 +163,9 @@ function LampDetail() {
       <header className={homeStyles.header}>
         <div className={homeStyles.headerContent}>
           <Image src={MenuIcon} alt="Menu icon" />  
-          <span className={`${fontStyles.headerTitle} ${homeStyles.headerTitle}`}>Smart Street Light</span>
+          <Link href="/">
+            <span className={`${fontStyles.headerTitle} ${homeStyles.headerTitle}`}>Smart Street Light</span>
+          </Link>
         </div>
         <div className={homeStyles.headerContent}>
           <div className={homeStyles.iconWrapper}>

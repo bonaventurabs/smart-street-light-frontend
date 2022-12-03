@@ -59,9 +59,7 @@ function LampsList() {
 
   const lampsData = useQuery({
     path: 'lamps',
-    queries: [
-      limitToFirst(10)
-    ]
+    queries: []
   })
 
   useEffect(() => {
@@ -89,7 +87,9 @@ function LampsList() {
       <header className={homeStyles.header}>
         <div className={homeStyles.headerContent}>
           <Image src={MenuIcon} alt="Menu icon" />  
-          <span className={`${fontStyles.headerTitle} ${homeStyles.headerTitle}`}>Smart Street Light</span>
+          <Link href="/">
+            <span className={`${fontStyles.headerTitle} ${homeStyles.headerTitle}`}>Smart Street Light</span>
+          </Link>
         </div>
         <div className={homeStyles.headerContent}>
           <div className={homeStyles.iconWrapper}>
