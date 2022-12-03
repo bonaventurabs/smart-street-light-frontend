@@ -38,31 +38,31 @@ function timeDiff (startTime, endTime) {
   return(hh + ":" + mm + ":" + ss);
 }
 
-const data =  {
-    "name": "unit_1",
-    "isActive": true,
-    "isUseThreshold": true,
-    "energy": 100,
-    "luxThreshold": 200,
-    "activeTime": "2022-11-26T01:46:40Z",
-    "location": "Tamansari",
-    "sector": "Dago"
-  }
+// const data =  {
+//     "name": "unit_1",
+//     "isActive": true,
+//     "isUseThreshold": true,
+//     "energy": 100,
+//     "luxThreshold": 200,
+//     "activeTime": "2022-11-26T01:46:40Z",
+//     "location": "Tamansari",
+//     "sector": "Dago"
+//   }
 
-  const luxData = [
-    {
-      "name": "unit_1",
-      "isActive": true,
-      "isUseThreshold": true,
-      "energy": 100,
-      "luxThreshold": 200,
-      "activeTime": "2022-11-26T01:46:40Z",
-      "location": "Taman Sari",
-      "sector": "Dago"
-    },
-  ]
+//   const luxData = [
+//     {
+//       "name": "unit_1",
+//       "isActive": true,
+//       "isUseThreshold": true,
+//       "energy": 100,
+//       "luxThreshold": 200,
+//       "activeTime": "2022-11-26T01:46:40Z",
+//       "location": "Taman Sari",
+//       "sector": "Dago"
+//     },
+//   ]
 
-  const getAverage = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+const getAverage = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
 
 function LampDetail() {
   const timeFormat = {
@@ -201,7 +201,7 @@ function LampDetail() {
               <div className={`${fontStyles.cardText} ${styles.gridLabelText}`}>Duration</div>
               <div className={`${fontStyles.cardText} ${styles.gridLabelText}`}>:</div>
               <div className={`${fontStyles.cardText} ${styles.gridValueText}`} suppressHydrationWarning={true}>{data?.isActive
-                ? timeDiff(new Date(data?.activeTime), currentTime)
+                ? timeDiff(new Date(data?.activeTime*1000), currentTime)
                 : "00:00:00"}
               </div>
               <div className={`${fontStyles.cardText} ${styles.gridLabelText}`}>Threshold</div>
